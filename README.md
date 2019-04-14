@@ -20,10 +20,10 @@ Here are useful bash one liners collected from various sources shown down below,
 
 |   **Sortware**    |      **Format**     |
 | :---------------: | :-----------------: |
-|    [awk](#awk)    | [FASTA/Q](#fasta\/q) |
-|    [sed](#sed)    | [SAM/BAM](#sam\/bam) |
+|    [awk](#awk)    | [FASTA/Q](#fasta-q) |
+|    [sed](#sed)    | [SAM/BAM](#sam/bam) |
 |   [grep](#grep)   |     [VCF](#vcf)     |
-|    [tar](#tar)    | [GFF/GTF](#gff\/gtf) |
+|    [tar](#tar)    | [GFF/GTF](#gff/gtf) |
 |   [perl](#perl)   |     [BED](#bed)     |
 | [Bioawk](#bioawk) |     [PSL](#psl)     |
 |  [Seqtk](#seqtk)  |     [WIG](#wig)     |
@@ -148,7 +148,7 @@ echo <SEQUENCE> | perl -nle 'print map{$_ =~ tr/ACGT/TGCA/; $_} reverse split(""
 
 ## Bioawk
 
-:construction:
+:construction: ...
 <br>
 
 ## Seqtk
@@ -184,7 +184,7 @@ seqtk seq -a input.fq.gz > output.fa
 ```
 <br>
 
-## FASTA/Q
+## FASTA/Q <a name="fasta-q"/>
 
 Convert fastq to fasta
 ```bash
@@ -299,12 +299,12 @@ awk '{close(f);f=$1}{print > f".bed"}'
 
 ## PSL
 
-:construction:
+:construction: ...
 <br>
 
 ## WIG
 
-:construction:
+:construction: ...
 <br>
 
 ## Alias
