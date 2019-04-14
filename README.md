@@ -65,6 +65,7 @@ Get a range of text
 ```bash
 awk '/START-WORD/, /END-WORD/' input_file > output_file
 ```
+<br>
 
 ## sed
 
@@ -429,3 +430,8 @@ Run FASTQC in parallel 12 jobs at a time
 ```bash
 find *.fq | parallel -j 12 "fastqc {} --outdir ."
 ```
+
+
+table {
+    width:100%;
+}
