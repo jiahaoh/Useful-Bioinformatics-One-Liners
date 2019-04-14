@@ -20,10 +20,10 @@ Here are useful bash one liners collected from various sources shown down below,
 
 |   **Sortware**    |      **Format**     |
 | :---------------: | :-----------------: |
-|    [awk](#awk)    | [FASTA/Q](#fasta/q) |
-|    [sed](#sed)    | [SAM/BAM](#sam/bam) |
+|    [awk](#awk)    | [FASTA/Q](#fasta\/q) |
+|    [sed](#sed)    | [SAM/BAM](#sam\/bam) |
 |   [grep](#grep)   |     [VCF](#vcf)     |
-|    [tar](#tar)    | [GFF/GTF](#gff/gtf) |
+|    [tar](#tar)    | [GFF/GTF](#gff\/gtf) |
 |   [perl](#perl)   |     [BED](#bed)     |
 | [Bioawk](#bioawk) |     [PSL](#psl)     |
 |  [Seqtk](#seqtk)  |     [WIG](#wig)     |
@@ -99,6 +99,7 @@ Print line xx content
 ```bash
 sed -n xxp input_file
 ```
+<br>
 
 ## grep
 
@@ -111,6 +112,7 @@ Search for any string in all txt files
 ```bash
 grep -r 'STRING1\|STRING2\|STRING3' input_file
 ```
+<br>
 
 ## tar
 
@@ -134,6 +136,7 @@ tar -tvf tar_name.tar
 tar -ztvf tar_name.tar.gz
 tar -jtvf tar_name.tar.bz2
 ```
+<br>
 
 ## perl
 
@@ -141,12 +144,12 @@ Reverse complement of seq
 ```bash
 echo <SEQUENCE> | perl -nle 'print map{$_ =~ tr/ACGT/TGCA/; $_} reverse split("",$_)'
 ```
-
+<br>
 
 ## Bioawk
 
 :construction:
-
+<br>
 
 ## Seqtk
 
@@ -179,7 +182,7 @@ Convert fastq to fasta
 ```bash
 seqtk seq -a input.fq.gz > output.fa
 ```
-
+<br>
 
 ## FASTA/Q
 
@@ -209,6 +212,7 @@ Split a multi-fasta file into individual fasta files
 ```bash
 awk '/^>/{s=++d".fa"} {print > s}' input.fa
 ```
+<br>
 
 ## SAM/BAM
 
@@ -234,6 +238,7 @@ Index your bam files in parallel (GNU parallel required)
 ```bash
 find *.bam | parallel 'samtools index {}'
 ```
+<br>
 
 ## VCF
 
@@ -251,6 +256,7 @@ Convert vcf to bed
 ```bash
 sed -e 's/chr//' input.vcf | awk '{OFS="\t"; if (!/^#/){print $1,$2-1,$2,$4"/"$5,"+"}}' > output.bed
 ```
+<br>
 
 ## GFF/GTF
 
@@ -278,7 +284,7 @@ Print length of each gene in a GFF3 file
 ```bash
 grep $'\tgene\t' input.gff3 | cut -s -f 4,5 | perl -ne '@v = split(/\t/); printf("%d\n", $v[1] - $v[0] + 1)'
 ```
-
+<br>
 
 ## BED
 
@@ -289,16 +295,17 @@ sort -k1,1 -k2,2n | \
 sed 's/^chr//' | \
 awk '{close(f);f=$1}{print > f".bed"}'
 ```
+<br>
 
 ## PSL
 
 :construction:
-
+<br>
 
 ## WIG
 
 :construction:
-
+<br>
 
 ## Alias
 
@@ -348,7 +355,7 @@ Count seq number for FASTQ
 ```bash
 alias countfq="bioawk -cfastx 'END{print NR}'"
 ```
-
+<br>
 
 ## Tricks
 
@@ -430,8 +437,3 @@ Run FASTQC in parallel 12 jobs at a time
 ```bash
 find *.fq | parallel -j 12 "fastqc {} --outdir ."
 ```
-
-
-table {
-    width:100%;
-}
