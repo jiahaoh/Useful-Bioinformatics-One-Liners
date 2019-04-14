@@ -149,6 +149,7 @@ echo <SEQUENCE> | perl -nle 'print map{$_ =~ tr/ACGT/TGCA/; $_} reverse split(""
 ## Bioawk
 
 :construction: ...
+
 <br>
 
 ## Seqtk
@@ -214,7 +215,7 @@ awk '/^>/{s=++d".fa"} {print > s}' input.fa
 ```
 <br>
 
-## SAM/BAM
+## SAM/BAM <a name="sam-bam"/>
 
 Convert bam to fastq
 ```bash
@@ -258,7 +259,7 @@ sed -e 's/chr//' input.vcf | awk '{OFS="\t"; if (!/^#/){print $1,$2-1,$2,$4"/"$5
 ```
 <br>
 
-## GFF/GTF
+## GFF/GTF <a name="gff-gtf"/>
 
 Extract all gene IDs from a GFF3 file
 ```bash
@@ -300,11 +301,13 @@ awk '{close(f);f=$1}{print > f".bed"}'
 ## PSL
 
 :construction: ...
+
 <br>
 
 ## WIG
 
 :construction: ...
+
 <br>
 
 ## Alias
