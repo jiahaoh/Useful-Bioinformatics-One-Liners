@@ -4,10 +4,9 @@
 
 Here are useful bash one liners collected from various sources shown down below, I also added some of my own tricks. Please start a pull request if you would like to add yours on the list. Thank you! - Jiahao
 
-<hr>
 ## Source
 
-* [The Williams lab @ Cornell University](http://williamslab.bscb.cornell.edu/?page_id=235 http://williamslab.bscb.cornell.edu/?page_id=287)
+* [The Williams lab @ Cornell University](http://williamslab.bscb.cornell.edu/?page_id=235)
 * [Stephen Turner's Github](https://github.com/stephenturner/oneliners)
 * [Ming Tang's Github](https://github.com/crazyhottommy/bioinformatics-one-liners)
 * [Zhigang Lu's Blog](https://zhiganglu.com/post/one-liners-collection/)
@@ -17,11 +16,9 @@ Here are useful bash one liners collected from various sources shown down below,
 * [生信技能树 BiliBili](https://www.bilibili.com/video/av28813815/?p=1)
 * [UCSC Data File Formats](<https://genome.ucsc.edu/FAQ/FAQformat.html#format1>)
 
-<hr>
-
 ## Content
 
-|   **Sortware**    |       Format        |
+|   **Sortware**    |      **Format**     |
 | :---------------: | :-----------------: |
 |    [awk](#awk)    | [FASTA/Q](#fasta/q) |
 |    [sed](#sed)    | [SAM/BAM](#sam/bam) |
@@ -36,7 +33,6 @@ Here are useful bash one liners collected from various sources shown down below,
 |  [alias](#alias)  |
 | [tricks](#tricks) |
 
-<hr>
 
 ## awk
 
@@ -69,10 +65,6 @@ Get a range of text
 ```bash
 awk '/START-WORD/, /END-WORD/' input_file > output_file
 ```
-
-
-
-<hr>
 
 ## sed
 
@@ -107,10 +99,6 @@ Print line xx content
 sed -n xxp input_file
 ```
 
-
-
-<hr>
-
 ## grep
 
 Search with a file containing queries
@@ -122,10 +110,6 @@ Search for any string in all txt files
 ```bash
 grep -r 'STRING1\|STRING2\|STRING3' input_file
 ```
-
-
-
-<hr>
 
 ## tar
 
@@ -150,10 +134,6 @@ tar -ztvf tar_name.tar.gz
 tar -jtvf tar_name.tar.bz2
 ```
 
-
-
-<hr>
-
 ## perl
 
 Reverse complement of seq
@@ -162,16 +142,10 @@ echo <SEQUENCE> | perl -nle 'print map{$_ =~ tr/ACGT/TGCA/; $_} reverse split(""
 ```
 
 
-
-<hr>
-
 ## Bioawk
 
 :construction:
 
-
-
-<hr>
 
 ## Seqtk
 
@@ -206,9 +180,6 @@ seqtk seq -a input.fq.gz > output.fa
 ```
 
 
-
-<hr>
-
 ## FASTA/Q
 
 Convert fastq to fasta
@@ -238,10 +209,6 @@ Split a multi-fasta file into individual fasta files
 awk '/^>/{s=++d".fa"} {print > s}' input.fa
 ```
 
-
-
-<hr>
-
 ## SAM/BAM
 
 Convert bam to fastq
@@ -267,10 +234,6 @@ Index your bam files in parallel (GNU parallel required)
 find *.bam | parallel 'samtools index {}'
 ```
 
-
-
-<hr>
-
 ## VCF
 
 Extract PASS calls from vcf file
@@ -287,10 +250,6 @@ Convert vcf to bed
 ```bash
 sed -e 's/chr//' input.vcf | awk '{OFS="\t"; if (!/^#/){print $1,$2-1,$2,$4"/"$5,"+"}}' > output.bed
 ```
-
-
-
-<hr>
 
 ## GFF/GTF
 
@@ -320,9 +279,6 @@ grep $'\tgene\t' input.gff3 | cut -s -f 4,5 | perl -ne '@v = split(/\t/); printf
 ```
 
 
-
-<hr>
-
 ## BED
 
 Split a bed file by chromosome
@@ -333,25 +289,15 @@ sed 's/^chr//' | \
 awk '{close(f);f=$1}{print > f".bed"}'
 ```
 
-
-
-<hr>
-
 ## PSL
 
 :construction:
 
 
-
-<hr>
-
 ## WIG
 
 :construction:
 
-
-
-<hr>
 
 ## Alias
 
@@ -402,9 +348,6 @@ Count seq number for FASTQ
 alias countfq="bioawk -cfastx 'END{print NR}'"
 ```
 
-
-
-<hr>
 
 ## Tricks
 
