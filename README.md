@@ -20,13 +20,14 @@ Here are useful bash one liners collected from various sources shown down below,
 
 |   **Sortware**    |      **Format**     |
 | :---------------: | :-----------------: |
-|    [    awk    ](#awk)    | [    FASTA/Q    ](#fasta-q) |
-|    [    sed    ](#sed)    | [    SAM/BAM    ](#sam-bam) |
+|    [awk](#awk)    | [FASTA/Q](#fasta-q) |
+|    [sed](#sed)    | [SAM/BAM](#sam-bam) |
 |   [grep](#grep)   |     [VCF](#vcf)     |
 |    [tar](#tar)    | [GFF/GTF](#gff-gtf) |
 |   [perl](#perl)   |     [BED](#bed)     |
 | [Bioawk](#bioawk) |     [PSL](#psl)     |
 |  [Seqtk](#seqtk)  |     [WIG](#wig)     |
+| [SeqKit](#seqkit) |    :construction:   |
 
 |     **Other**     |
 | :---------------: |
@@ -185,6 +186,19 @@ seqtk seq -a input.fq.gz > output.fa
 ```
 <br>
 
+## Seqkit
+Simple statistics of fasta/q
+```bash
+seqkit stats *.f{a,q}.gz
+```
+
+Calculate GC content
+```bash
+seqkit fx2tab -ignlH *.f{a,q}.gz
+```
+
+<br>
+
 ## FASTA/Q <a name="fasta-q"/>
 
 Convert fastq to fasta
@@ -212,6 +226,40 @@ zcat input.fastq.gz | awk 'NR%4 == 2 {lengths[length($0)]++} END {for (l in leng
 Split a multi-fasta file into individual fasta files
 ```bash
 awk '/^>/{s=++d".fa"} {print > s}' input.fa
+```
+
+Calculate GC content for each seq
+```bash
+awk ' \
+BEGIN { \
+    FS=""; \
+    cg=0; \
+    t=0; \
+    print "Header""\t""GC#""\t""Total#""\t""GC%"; \
+} \
+{ \
+    if ($1 != ">") { \
+        for (i = 1; i <= NF; i++) { \
+            if ($i ~ /[ACTGactg]/) { \
+                t++;
+            } \
+            if ($i ~ /[CGcg]/) { \
+                cg++;
+            } \
+        } \
+    } \
+    else { \
+        if (t > 0) { \
+            print h"\t"cg"\t"t"\t"(cg/t); \
+            cg = 0; \
+            t = 0; \
+        } \
+        h = substr($0,2); \
+    } \
+} \
+END { \
+    print h"\t"cg"\t"t"\t"(cg/t); \
+}' input.fa
 ```
 <br>
 
