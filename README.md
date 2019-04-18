@@ -1,8 +1,9 @@
 # Useful Bioinformatics One Liner Collection
 
-:construction:[Keep Updating]()
-
 Here are useful bash one liners collected from various sources shown down below, I also added some of my own tricks. Please start a pull request if you would like to add yours on the list. Thank you! - Jiahao
+
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
+[![HitCount](http://hits.dwyl.io/jiahaoh/Useful-Bioinformatics-One-Liners.svg)](http://hits.dwyl.io/jiahaoh/Useful-Bioinformatics-One-Liners)
 
 ## Source
 
@@ -13,6 +14,7 @@ Here are useful bash one liners collected from various sources shown down below,
 * [竹子-博客](http://www.cnblogs.com/peida/tag/%E6%AF%8F%E6%97%A5%E4%B8%80linux%E5%91%BD%E4%BB%A4/)
 * [Seqtk](https://github.com/lh3/seqtk)
 * [Bioawk](https://github.com/lh3/bioawk)
+* [Seqkit](https://bioinf.shenwei.me/seqkit/)
 * [生信技能树 BiliBili](https://www.bilibili.com/video/av28813815/?p=1)
 * [UCSC Data File Formats](<https://genome.ucsc.edu/FAQ/FAQformat.html#format1>)
 
