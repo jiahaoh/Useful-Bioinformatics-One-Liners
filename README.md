@@ -2,7 +2,7 @@
 
 Here are useful bash one liners collected from various sources shown down below, I also added some of my own tricks. Please start a pull request if you would like to add yours on the list. Thank you! - Jiahao
 
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/jiahaoh/Useful-Bioinformatics-One-Liners/graphs/commit-activity)
 [![HitCount](http://hits.dwyl.io/jiahaoh/Useful-Bioinformatics-One-Liners.svg)](http://hits.dwyl.io/jiahaoh/Useful-Bioinformatics-One-Liners)
 
 ## Source
